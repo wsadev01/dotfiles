@@ -34,13 +34,13 @@ r.noremap("n", "<c-x>", ":bd<cr>", "exit buffer")
 r.noremap("n", "<c-b>", ":enew<cr>", "new buffer")
 
 -- tabs
-r.noremap("n", "<leader><tab>j", "<cmd>tablast<cr>", { desc = "Last Tab" })
-r.noremap("n", "<leader><tab>h", "<cmd>tabfirst<cr>", { desc = "First Tab" })
-r.noremap("n", "<s-tab>", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
-r.noremap("n", "<C-Tab>", "<cmd>tabnext<cr>", { desc = "Next Tab" })
-r.noremap("n", "<leader><tab>q", "<cmd>tabclose<cr>", { desc = "Close Tab" })
-r.noremap("n", "<c-q>", "<cmd>tabclose<cr>", { desc = "Close Tab" })
-r.noremap("n", "<c-t>", "<cmd>tabnew<cr>", { desc = "New Tab" })
+r.noremap("n", "<leader><tab>j", "<cmd>tablast<cr>",  "Last Tab" )
+r.noremap("n", "<leader><tab>h", "<cmd>tabfirst<cr>", "First Tab" )
+r.noremap("n", "<s-tab>", "<cmd>tabprevious<cr>", "Previous Tab" )
+r.noremap("n", "<C-Tab>", "<cmd>tabnext<cr>", "Next Tab" )
+r.noremap("n", "<leader><tab>q", "<cmd>tabclose<cr>", "Close Tab" )
+r.noremap("n", "<c-q>", "<cmd>tabclose<cr>", "Close Tab" )
+r.noremap("n", "<c-t>", "<cmd>tabnew<cr>",  "New Tab" )
 
 r.noremap('n', '<C-J>', '<C-W><C-J>', 'Move to window below')
 r.noremap('n', '<C-K>', '<C-W><C-K>', 'Move to window above')
@@ -79,11 +79,13 @@ r.noremap('n', '<leader>1', ':lua require("utils.functions").toggle_term_with_co
 r.noremap('n', '<leader>2', ':lua require("utils.functions").toggle_term_with_count(2)<CR>', "Open terminal 2")
 r.noremap('n', '<leader>3', ':lua require("utils.functions").toggle_term_with_count(3)<CR>', "Open terminal 3")
 local tt_opts = {buffer = 0}
-r.noremap('t', '<C-h>', [[<Cmd>wincmd h<CR>]], tt_opts)
-r.noremap('t', '<C-j>', [[<Cmd>wincmd j<CR>]], tt_opts)
-r.noremap('t', '<C-k>', [[<Cmd>wincmd k<CR>]], tt_opts)
-r.noremap('t', '<C-l>', [[<Cmd>wincmd l<CR>]], tt_opts)
-r.noremap('t', '<Esc>', [[<C-\><C-n>]],tt_opts)
+r.noremap('t', '<C-h>', "<Cmd>wincmd h<CR>", "", tt_opts)
+r.noremap('t', '<C-j>', "<Cmd>wincmd j<CR>", "", tt_opts)
+r.noremap('t', '<C-k>', "<Cmd>wincmd k<CR>", "", tt_opts)
+r.noremap('t', '<C-l>', "<Cmd>wincmd l<CR>", "", tt_opts)
+vim.api.nvim_set_keymap('t', '<Esc>', [[<C-\><C-n>]], { noremap = true, silent = true })
+-- The shite won't work idk why >:/
+-- r.noremap('t', '<Esc>', [[<C-\><C-n>]], "", tt_opts)
 
 -- the worst place in the universe
 r.noremap("n", "Q", "<nop>", "")
