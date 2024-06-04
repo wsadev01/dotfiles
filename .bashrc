@@ -27,7 +27,8 @@ colors() {
 			printf " ${seq0}TEXT\e[m"
 			printf " \e[${vals:+${vals+$vals;}}1mBOLD\e[m"
 		done
-		echo; echo
+		echo
+		echo
 	done
 }
 
@@ -35,12 +36,12 @@ colors() {
 
 # Change the window title of X terminals
 case ${TERM} in
-	kitty*|xterm*|rxvt*|Eterm*|aterm|kterm|gnome*|interix|konsole*)
-		PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\007"'
-		;;
-	screen*)
-		PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\033\\"'
-		;;
+kitty* | xterm* | rxvt* | Eterm* | aterm | kterm | gnome* | interix | konsole*)
+	PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\007"'
+	;;
+screen*)
+	PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\033\\"'
+	;;
 esac
 
 use_color=true
@@ -52,24 +53,25 @@ use_color=true
 # globbing instead of external grep binary.
 safe_term=${TERM//[^[:alnum:]]/?}   # sanitize TERM
 match_lhs=""
-[[ -f ~/.dir_colors   ]] && match_lhs="${match_lhs}$(<~/.dir_colors)"
-[[ -f /etc/DIR_COLORS ]] && match_lhs="${match_lhs}$(</etc/DIR_COLORS)"
-[[ -z ${match_lhs}    ]] \
-	&& type -P dircolors >/dev/null \
-	&& match_lhs=$(dircolors --print-database)
+
+[[ -f ~/.dir_colors   ]] && match_lhs="${match_lhs}$(< ~/.dir_colors)"
+[[ -f /etc/DIR_COLORS ]] && match_lhs="${match_lhs}$(< /etc/DIR_COLORS)"
+[[ -z ${match_lhs}    ]] &&
+	type -P dircolors > /dev/null &&
+	match_lhs=$(dircolors --print-database)
 [[ $'\n'${match_lhs} == *$'\n'"TERM "${safe_term}* ]] && use_color=true
 
-if ${use_color} ; then
+if ${use_color}; then
 	# Enable colors for ls, etc.  Prefer ~/.dir_colors #64489
-	if type -P dircolors >/dev/null ; then
-		if [[ -f ~/.dir_colors ]] ; then
+	if type -P dircolors > /dev/null; then
+		if [[ -f ~/.dir_colors ]]; then
 			eval $(dircolors -b ~/.dir_colors)
-		elif [[ -f /etc/DIR_COLORS ]] ; then
+		elif [[ -f /etc/DIR_COLORS ]]; then
 			eval $(dircolors -b /etc/DIR_COLORS)
 		fi
 	fi
 
-	if [[ ${EUID} == 0 ]] ; then
+	if [[ ${EUID} == 0 ]]; then
 		PS1='\[\033[01;31m\][\h\[\033[01;36m\] \W\[\033[01;31m\]]\$\[\033[00m\] '
 	else
 		PS1='\[\033[01;32m\][\u@\h\[\033[01;37m\] \W\[\033[01;32m\]]\$\[\033[00m\] '
@@ -79,8 +81,9 @@ if ${use_color} ; then
 	alias grep='grep --colour=auto'
 	alias egrep='egrep --colour=auto'
 	alias fgrep='fgrep --colour=auto'
+
 else
-	if [[ ${EUID} == 0 ]] ; then
+	if [[ ${EUID} == 0 ]]; then
 		# show root@ when we don't have colors
 		PS1='\u@\h \W \$ '
 	else
@@ -114,36 +117,36 @@ shopt -s histappend
 #
 # # ex - archive extractor
 # # usage: ex <file>
-ex ()
-{
-  if [ -f $1 ] ; then
-    case $1 in
-      *.tar.bz2)   tar xjf $1   ;;
-      *.tar.gz)    tar xzf $1   ;;
-      *.bz2)       bunzip2 $1   ;;
-      *.rar)       unrar x $1     ;;
-      *.gz)        gunzip $1    ;;
-      *.tar)       tar xf $1    ;;
-      *.tbz2)      tar xjf $1   ;;
-      *.tgz)       tar xzf $1   ;;
-      *.zip)       unzip $1     ;;
-      *.Z)         uncompress $1;;
-      *.7z)        7z x $1      ;;
-      *)           echo "'$1' cannot be extracted via ex()" ;;
-    esac
-  else
-  	command
-    echo "'$1' is not a valid file"
-  fi
-}
-alias hdmi_plug="xrandr --output HDMI-1 --auto --left-of $1"
-alias vga_plug="xrandr --output VGA-1 --auto -left-of $1"
 
+ex() {
+	if [ -f $1 ]; then
+		case $1 in
+		*.tar.bz2)   tar xjf $1   ;;
+		*.tar.gz)    tar xzf $1   ;;
+		*.bz2)       bunzip2 $1   ;;
+		*.rar)       unrar x $1     ;;
+		*.gz)        gunzip $1    ;;
+		*.tar)       tar xf $1    ;;
+		*.tbz2)      tar xjf $1   ;;
+		*.tgz)       tar xzf $1   ;;
+		*.zip)       unzip $1     ;;
+		*.Z)         uncompress $1 ;;
+		*.7z)        7z x $1      ;;
+		*)           echo "'$1' cannot be extracted via ex()" ;;
+		esac
+	else
+		command
+		echo "'$1' is not a valid file"
+	fi
+}
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 export WORK_DIR="$HOME/Documents/lavoro"
+export BROWSER="librewolf"
+export PProjects=$HOME/Documents/pprojects/
+
 # [S] Persistent Session
 # [U] user:group
 # [H] hidden files (.dotfiles)
@@ -152,22 +155,23 @@ export WORK_DIR="$HOME/Documents/lavoro"
 # [i] Show current file info.
 # [f] use readline history file
 alias n3="nnn -SUHDdif"
-
+alias glow="glow -p" #For a pager when we render md
 # Created by `pipx` on 2023-12-29 19:15:12
 export PATH="$PATH:/home/torswq/.local/bin"
-PProjects=$HOME/Documents/pprojects/
-alias spotify="spotifyd && spt"
 
-# Kitty fast-launchers
-echo "[+] Personal fast launchers :)"
-. ~/.scripts/kitty.bash
+# Personal projects folder
 
-
-# -= pyenv initialization by wsapub =-
-echo "[+] Loading pyenv..."
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-# -= pyenv initialization end =-
-# Clean the screen
-clear
-
+# n3 nord colors
+BLK="0B"
+CHR="0B"
+DIR="04"
+EXE="06"
+REG="00"
+HARDLINK="06"
+SYMLINK="06"
+MISSING="00"
+ORPHAN="09"
+FIFO="06"
+SOCK="0B"
+OTHER="06"
+export NNN_FCOLORS="$BLK$CHR$DIR$EXE$REG$HARDLINK$SYMLINK$MISSING$ORPHAN$FIFO$SOCK$OTHER"

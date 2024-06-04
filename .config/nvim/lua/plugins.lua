@@ -33,7 +33,6 @@ lazy.setup({
 		require('plugins.lastplace'),
 		require("plugins.terminal"),
 		require("plugins.chadtree"),
-		--require("plugins.miasma"),
 		require("plugins.osc52-yank"),
 		require("plugins.scrollbar"),
 		require("plugins.gitsigns"),
@@ -59,7 +58,6 @@ lazy.setup({
 		require("plugins.alpha"),
 		require("plugins.dadbod"),
 		require("plugins.mason-dap"),
-		-- require("plugins.gruvbox"),
 		require("plugins.theme")
 	},
 	dev = {

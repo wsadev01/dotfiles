@@ -32,8 +32,8 @@ set $up k
 set $down j
 set $left h
 set $right l
-set $terminal_app kitty
-set $web_browser_app waterfox
+set $terminal_app urxvt
+set $web_browser_app librewolf
 
 # use Mouse+Mod4 to drag floating windows to their wanted position
 floating_modifier Mod4
@@ -46,8 +46,9 @@ bindsym Mod4+Shift+q kill
 bindsym Mod4+d exec "rofi -modi drun,run -show drun"
 bindsym Mod4+Ctrl+l exec "dm-tool switch-to-greeter"
 bindsym Mod4+b exec $web_browser_app
-bindsym Control+Alt+t exec "telegram-desktop"
+bindsym Control+Mod4+t exec "telegram-desktop"
 bindsym Print exec flameshot gui --delay 100
+bindsym Control+Mod4+f exec $terminal_app -e newsboat
 
 # change focus
 bindsym Mod4+$left focus left
@@ -186,7 +187,7 @@ focus_on_window_activation smart
 # * Borders
 hide_edge_borders both
 # * Gaps
-default_border normal 1
+default_border pixel 1
 
 gaps inner 12
 gaps outer 12
@@ -195,14 +196,15 @@ gaps outer 12
 for_window [class=".*"] title_format "   タイトル %title"
 font pango: DejaVu Sans Light,11
 
-set $bg-1 #033B177F
-set $fg-1 #CDD2C8
-set $bg-u #0005037F
-# class                 border     backgr. 	text    	indicator
-client.focused          $bg-1 $bg-1 	$fg-1 	$bg-1
-client.unfocused        $bg-u $bg-u 	#888888 	$bg-u
-client.focused_inactive $bg-u $bg-u 	#888888 	$bg-u
-client.placeholder      $bg-u $bg-u 	#888888 	$bg-u
+set $bg-1 #F2E5BC
+set $fg-1 #080808
+set $bg-u #C2B57C
+set $fg-u #585858
+# class                 border  backgr. text    indicator
+client.focused          $bg-1   $bg-1 	$fg-1 	$bg-1
+client.unfocused        $bg-u   $bg-u 	$fg-u		$bg-u
+client.focused_inactive $bg-u   $bg-u 	#888888 $bg-u
+client.placeholder      $bg-u   $bg-u 	#888888 $bg-u
 client.urgent           #900000 #900000 #FFFFFF #900000
 client.background       #141414
 
