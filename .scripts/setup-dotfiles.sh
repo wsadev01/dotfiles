@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+#
+# Alternative way to install packages, having a .packages and .packages-aur in your home c:
 
 aur_packages="../.packages-aur"
 packages="../.packages"
