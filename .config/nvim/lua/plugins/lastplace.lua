@@ -1,3 +1,0 @@
-return {
-	'vladdoster/remember.nvim',
-}

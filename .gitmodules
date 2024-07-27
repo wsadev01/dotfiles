@@ -1,3 +1,6 @@
 [submodule ".github-pages"]
 	path = .github-pages
 	url = git@github.com:wsadev01/blog
+[submodule ".config/nvim"]
+	path = .config/nvim
+	url = https://github.com/wsadev01/nvim.git

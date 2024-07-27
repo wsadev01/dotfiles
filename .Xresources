@@ -7,35 +7,34 @@ Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
 
-! Gruvbox Material Colorscheme for urxvt
-*.foreground: #d4be98
-*.background: [90]#1d2021
-*.cursorColor: #d4be98
+! Base16 Synth Midnight Dark
+*background: #050608
+*foreground: #c1c3c4
+*cursorColor: #c1c3c4
 ! Black
-*.color0: #282828
-*.color8: #928374
+*color0: #050608
+*color8: #474849
 ! Red
-*.color1: #ea6962
-*.color9: #f07565
+*color1: #b53b50
+*color9: #b53b50
 ! Green
-*.color2: #a9b665
-*.color10: #b8bb26
+*color2: #06ea61
+*color10: #06ea61
 ! Yellow
-*.color3: #d8a657
-*.color11: #eab56a
+*color3: #c9d364
+*color11: #c9d364
 ! Blue
-*.color4: #7daea3
-*.color12: #8ec07c
+*color4: #03aeff
+*color12: #03aeff
 ! Magenta
-*.color5: #d3869b
-*.color13: #d3869b
+*color5: #ea5ce2
+*color13: #ea5ce2
 ! Cyan
-*.color6: #89b482
-*.color14: #8ec07c
+*color6: #42fff9
+*color14: #42fff9
 ! White
-*.color7: #d4be98
-*.color15: #f2e5bc
-
+*color7: #c1c3c4
+*color15: #dddfe0
 !Cursor
 Xcursor.theme: xcursor-breeze
 Xcursor.size: 1
@@ -79,14 +78,15 @@ URxvt.keysym.Control-Down: \033[1;5B
 URxvt.keysym.Control-Right: \033[1;5C
 URxvt.keysym.Control-Left: \033[1;5D
 
-!! Copy Paste & Other Extensions
+! Copy Paste & Other Extensions
 URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select, bell-command
 URxvt.copyCommand: xclip -i -selection clipboard
 URxvt.pasteCommand: xclip -o -selection clipboard
 URxvt.keysym.M-c: perl:clipboard:copy
 URxvt.keysym.M-v: perl:clipboard:paste
 URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
-! Alt + Esc makes some Visual mode (vim-like) so you can do stuff with keyboard :D
+
+! Alt + Esc makes some Visual mode (vim-like) so you can do stuff.
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
 URxvt.keysym.M-s: perl:keyboard-select:search
 URxvt.keysym.M-u: perl:url-select:select_next
@@ -95,5 +95,3 @@ URxvt.underlineURLs: true
 URxvt.urlButton: 1
 URxvt.bell-command: parecord -p .bell
 
-!! Todo re choreado de: https://addy-dclxvi.github.io/post/configuring-urxvt/
-!! Thank you, sharing is caring <3
