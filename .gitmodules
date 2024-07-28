@@ -4,3 +4,9 @@
 [submodule ".config/nvim"]
 	path = .config/nvim
 	url = https://github.com/wsadev01/nvim.git
+[submodule ".config/i3"]
+	path = .config/i3
+	url = git@github.com:wsadev01/i3
+[submodule ".config/picom"]
+	path = .config/picom
+	url = git@github.com:wsadev01/picom
