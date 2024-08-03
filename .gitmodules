@@ -10,3 +10,6 @@
 [submodule ".config/picom"]
 	path = .config/picom
 	url = git@github.com:wsadev01/picom
+[submodule ".config/polybar"]
+	path = .config/polybar
+	url = git@github.com:wsadev01/polybar.git
