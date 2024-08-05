@@ -4,7 +4,8 @@ color = "#ff0000"
 duration = 0
 
 [bell.command]
-args = ["-p", ".bell"]
+#args = ["-p", "/home/wsadev/.bell"]
+args = ["-p", "/home/torswq/.bell"]
 program = "parecord"
 
 [colors.bright]
