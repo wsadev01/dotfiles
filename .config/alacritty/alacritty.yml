@@ -1,0 +1,113 @@
+
+# Alacritty Configuration File
+
+# Window
+window:
+  dimensions:
+    columns: 174
+    lines: 47
+  padding:
+    x: 16
+    y: 16
+  dynamic_padding: false
+  decorations: full
+  startup_mode: Windowed
+  transparency: 0.0
+  opacity: 1.0
+  background_opacity: 1.0
+
+# Font
+font:
+  normal:
+    family: BitstromWera Nerd Font Mono
+    style: Regular
+  size: 12.0
+  offset:
+    x: 0
+    y: 0
+
+# Colors
+colors:
+  primary:
+    background: '#050608'
+    foreground: '#c1c3c4'
+    cursor: '#c1c3c4'
+  normal:
+    black:   '#050608'
+    red:     '#b53b50'
+    green:   '#06ea61'
+    yellow:  '#c9d364'
+    blue:    '#03aeff'
+    magenta: '#ea5ce2'
+    cyan:    '#42fff9'
+    white:   '#c1c3c4'
+  bright:
+    black:   '#474849'
+    red:     '#b53b50'
+    green:   '#06ea61'
+    yellow:  '#c9d364'
+    blue:    '#03aeff'
+    magenta: '#ea5ce2'
+    cyan:    '#42fff9'
+    white:   '#dddfe0'
+
+# Cursor
+cursor:
+  style: Beam
+  blink: true
+  unfocused_hollow: false
+
+# Scrolling
+scrolling:
+  history: 65535
+  multiplier: 3
+
+# Mouse
+mouse:
+  double_click: { threshold: 300 }
+  triple_click: { threshold: 300 }
+  hide_when_typing: true
+
+
+# Key Bindings
+key_bindings:
+  - { key: V, mods: Shift | Control, action: Paste }
+  - { key: Up, mods: Shift, action: ScrollPageUp }
+  - { key: Down, mods: Shift, action: ScrollPageDown }
+  - { key: Up, mods: Control, chars: "\x1b[1;5A" }
+  - { key: Down, mods: Control, chars: "\x1b[1;5B" }
+  - { key: Right, mods: Control, chars: "\x1b[1;5C" }
+  - { key: Left, mods: Control, chars: "\x1b[1;5D" }
+  - { key: C, mods: Alt, command: { program: "xclip", args: ["-i", "-selection", "clipboard"] } }
+  - { key: V, mods: Alt, command: { program: "xclip", args: ["-o", "-selection", "clipboard"] } }
+  - { key: V, mods: Alt | Control, command: { program: "xclip", args: ["-o", "-selection", "clipboard"] } }
+  - { key: Escape, mods: Alt, action: None }
+  - { key: S, mods: Alt, action: None }
+  - { key: U, mods: Alt, action: None }
+  - { key: E, mods: Alt, action: None }
+
+# URL Launching
+hints:
+  enabled:
+    - regex: "(https?://\\S+)"
+  mouse:
+    enabled: true
+    modifiers: None
+  action: { command: { program: "firefox", args: [] } }
+
+# Bell
+bell:
+  command: { program: "parecord", args: ["-p", ".bell"] }
+  animation: Ease
+  duration: 0
+  color: '#ff0000'
+
+# Scrollback
+scrollback:
+  enabled: true
+  lines: 2048
+
+# Other settings
+dynamic_title: true
+hide_cursor_when_typing: true
+persistent_logging: false

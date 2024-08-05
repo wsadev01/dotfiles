@@ -1,0 +1,75 @@
+[bell]
+animation = "Ease"
+color = "#ff0000"
+duration = 0
+
+[bell.command]
+args = ["-p", ".bell"]
+program = "parecord"
+
+[colors.bright]
+black = "#474849"
+blue = "#03aeff"
+cyan = "#42fff9"
+green = "#06ea61"
+magenta = "#ea5ce2"
+red = "#b53b50"
+white = "#dddfe0"
+yellow = "#c9d364"
+
+[colors.normal]
+black = "#050608"
+blue = "#03aeff"
+cyan = "#42fff9"
+green = "#06ea61"
+magenta = "#ea5ce2"
+red = "#b53b50"
+white = "#c1c3c4"
+yellow = "#c9d364"
+
+[colors.primary]
+background = "#050608"
+foreground = "#c1c3c4"
+
+[cursor]
+unfocused_hollow = false
+[cursor.style]
+shape = "Beam"
+blinking = "On"
+
+[font]
+size = 12.0
+
+[font.normal]
+family = "BitstromWera Nerd Font Mono"
+style = "Regular"
+
+[font.offset]
+x = 0
+y = 0
+
+[[hints.enabled]]
+command = "xdg-open"
+hyperlinks = true
+post_processing = true
+persist = false
+mouse.enabled = true
+binding = { key = "U", mods = "Control|Shift" }
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
+
+[mouse]
+hide_when_typing = true
+
+[scrolling]
+history = 65535
+multiplier = 3
+
+[window]
+decorations = "full"
+dynamic_padding = false
+opacity = 1.0
+startup_mode = "Windowed"
+
+[window.padding]
+x = 16
+y = 16
