@@ -16,3 +16,6 @@
 [submodule ".config/global-dotfiles"]
 	path = .config/global-dotfiles
 	url = git@github.com:wsadev01/global-dotfiles
+[submodule ".scripts"]
+	path = .scripts
+	url = git@github.com:wsadev01/scripts.git
