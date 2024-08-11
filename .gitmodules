@@ -13,3 +13,6 @@
 [submodule ".config/polybar"]
 	path = .config/polybar
 	url = git@github.com:wsadev01/polybar.git
+[submodule ".config/global-dotfiles"]
+	path = .config/global-dotfiles
+	url = git@github.com:wsadev01/global-dotfiles
