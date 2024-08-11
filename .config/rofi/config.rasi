@@ -3,4 +3,6 @@
 //@theme "/home/torswq/.local/share/rofi/themes/nord-squared.rasi"
 //@theme "/home/torswq/.local/share/rofi/themes/rounded-nord-dark.rasi"
 //@theme "/home/torswq/.local/share/rofi/themes/rounded-nord-dark.rasi"
-@theme "/usr/share/rofi/themes/purple.rasi"
+//@theme "/usr/share/rofi/themes/purple.rasi"
+//@theme "/usr/share/rofi/themes/arthur.rasi"
+@theme "/usr/share/rofi/themes/Arc-Dark.rasi"
