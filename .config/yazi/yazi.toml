@@ -1,0 +1,20 @@
+
+[opener]
+libreoffice = [{ run = 'libreoffice "$@"', block = false}]
+
+[open]
+prepend_rules = [
+    { name = "*.rtf", mime = "text/rtf", use = ["libreoffice", "open"] },
+		{ name = "*.doc", mime = "application/msword", use = ["libreoffice", "open"] },
+    { name = "*.docx", mime = "application/vnd.openxmlformats-officedocument.wordprocessingml.document", use = ["libreoffice", "open"] },
+    { name = "*.xls", mime = "application/vnd.ms-excel", use = ["libreoffice", "open"] },
+    { name = "*.xlsx", mime = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", use = ["libreoffice", "open"] },
+    { name = "*.ppt", mime = "application/vnd.ms-powerpoint", use = ["libreoffice", "open"] },
+    { name = "*.pptx", mime = "application/vnd.openxmlformats-officedocument.presentationml.presentation", use = ["libreoffice", "open"] },
+    { name = "*.odt", mime = "application/vnd.oasis.opendocument.text", use = ["libreoffice", "open"] },
+    { name = "*.ods", mime = "application/vnd.oasis.opendocument.spreadsheet", use = ["libreoffice", "open"] },
+    { name = "*.odp", mime = "application/vnd.oasis.opendocument.presentation", use = ["libreoffice", "open"] },
+    { name = "*.odg", mime = "application/vnd.oasis.opendocument.graphics", use = ["libreoffice", "open"] },
+    { name = "*.odf", mime = "application/vnd.oasis.opendocument.formula", use = ["libreoffice", "open"] }
+]
+
